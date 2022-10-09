@@ -38,19 +38,23 @@ axios(WhpUrl).then((res) => {
   //console.log(eventNamesArr);
 
   // GET ARTIST LINEUP
-  const beforeArtistLineupArr = [];
+  const ArtistLineupArr1 = [];
   $(".calendar_artists", html).each(function () {
     const artistLineup = $(this).text();
-    beforeArtistLineupArr.push(artistLineup);
+    ArtistLineupArr1.push(artistLineup);
   });
-  const artistLineupArr = beforeArtistLineupArr.map((lineup) =>
+  const artistLineupArr2 = ArtistLineupArr1.map((lineup) =>
     lineup.replace(/\s\s+/g, "")
   );
-  artistLineupArr.shift();
-  const newArr = artistLineupArr
-    .map((lineup) => lineup.replace(/([A-Z])/g, " $1").trim())
-  console.log(newArr)
-  //console.log(artistLineupArr);
+  artistLineupArr2.shift();
+  const artistLineupArr3 = artistLineupArr2.filter((lineup) => {
+    return lineup !== "";
+  });
+  console.log(artistLineupArr3);
+
+  // const newArr = artistLineupArr2.map((lineup) =>
+  //   lineup.replace(/([A-Z])/g, " $1").trim()
+  // );
 
   // GET EVENT TIME AND LOCATION
   const timeLocationArr = [];
