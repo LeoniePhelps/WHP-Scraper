@@ -10,26 +10,45 @@ const WhpUrl = "https://www.thewarehouseproject.com/calendar_2022";
 axios(WhpUrl).then((res) => {
   const html = res.data;
   const $ = cheerio.load(html);
+
+  // GET EVERYTHING
+  const allEventDataArr = [];
+  $(".calendar_block", html).each(function () {
+    const allEventData = $(this).text();
+    allEventDataArr.push(allEventData);
+  });
+
   // GET DATES
+  const dateArr = [];
   $(".calendar_block_date", html).each(function () {
     const dates = $(this).text();
-    //console.log(dates)
+    dateArr.push(dates);
   });
+  //console.log(dateArr)
+
   // GET EVENT NAMES
+  const eventNamesArr = [];
   $(".calendar_name", html).each(function () {
     const eventNames = $(this).text();
-    //console.log(eventNames)
+    eventNamesArr.push({ eventNames });
   });
+  //console.log(eventNamesArr)
+
   // GET ARTIST LINEUP
+  const artistLineupArr = [];
   $(".calendar_artists", html).each(function () {
     const artistLineup = $(this).text();
-    //console.log(artistLineup)
+    artistLineupArr.push(artistLineup);
   });
+  //console.log(artistLineupArr);
+
   // GET EVENT TIME AND LOCATION
+  const timeLocationArr = [];
   $(".grey", html).each(function () {
     const timeLocation = $(this).text();
-    //console.log(timeLocation);
+    timeLocationArr.push(timeLocation);
   });
+  //console.log(timeLocationArr);
 });
 
 app.listen(PORT, () => console.log(`server running on PORT ${PORT}`));
