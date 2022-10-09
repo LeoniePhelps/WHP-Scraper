@@ -27,22 +27,29 @@ axios(WhpUrl).then((res) => {
   //console.log(dateArr)
 
   // GET EVENT NAMES
-  const eventNamesArr = [];
+  const beforeEventNamesArr = [];
   $(".calendar_name", html).each(function () {
     const eventNames = $(this).text();
-    eventNamesArr.push({ eventNames });
+    beforeEventNamesArr.push({ eventNames });
   });
-  const newArr = eventNamesArr.map((eventName) =>
+  const eventNamesArr = beforeEventNamesArr.map((eventName) =>
     eventName.eventNames.replace(/\s\s+/g, "")
   );
-  console.log(newArr);
+  //console.log(eventNamesArr);
 
   // GET ARTIST LINEUP
-  const artistLineupArr = [];
+  const beforeArtistLineupArr = [];
   $(".calendar_artists", html).each(function () {
     const artistLineup = $(this).text();
-    artistLineupArr.push(artistLineup);
+    beforeArtistLineupArr.push(artistLineup);
   });
+  const artistLineupArr = beforeArtistLineupArr.map((lineup) =>
+    lineup.replace(/\s\s+/g, "")
+  );
+  artistLineupArr.shift();
+  const newArr = artistLineupArr
+    .map((lineup) => lineup.replace(/([A-Z])/g, " $1").trim())
+  console.log(newArr)
   //console.log(artistLineupArr);
 
   // GET EVENT TIME AND LOCATION
