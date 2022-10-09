@@ -12,19 +12,23 @@ axios(WhpUrl).then((res) => {
   const $ = cheerio.load(html);
   // GET DATES
   $(".calendar_block_date", html).each(function () {
-    //console.log($(this).text());
+    const dates = $(this).text();
+    //console.log(dates)
   });
   // GET EVENT NAMES
   $(".calendar_name", html).each(function () {
-    //console.log($(this).text());
+    const eventNames = $(this).text();
+    //console.log(eventNames)
   });
   // GET ARTIST LINEUP
   $(".calendar_artists", html).each(function () {
-    //console.log($(this).text());
+    const artistLineup = $(this).text();
+    //console.log(artistLineup)
   });
   // GET EVENT TIME AND LOCATION
   $(".grey", html).each(function () {
-    //console.log($(this).text());
+    const timeLocation = $(this).text();
+    //console.log(timeLocation);
   });
 });
 
