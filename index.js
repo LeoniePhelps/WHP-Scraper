@@ -32,7 +32,10 @@ axios(WhpUrl).then((res) => {
     const eventNames = $(this).text();
     eventNamesArr.push({ eventNames });
   });
-  //console.log(eventNamesArr)
+  const newArr = eventNamesArr.map((eventName) =>
+    eventName.eventNames.replace(/\s\s+/g, "")
+  );
+  console.log(newArr);
 
   // GET ARTIST LINEUP
   const artistLineupArr = [];
