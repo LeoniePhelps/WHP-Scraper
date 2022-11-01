@@ -1,10 +1,25 @@
 const PORT = 8000;
+
+// TO RUN FILE:
 // npm run start
+// node ./index
 const axios = require("axios");
 const cheerio = require("cheerio");
 const express = require("express");
+const admin = require("firebase-admin");
+const serviceAccount = require("./serviceAccountKeys.json");
 
 const app = express();
+
+admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
+const db = admin.firestore();
+
+let dates = db.collection("dates");
+dates.get().then((querySnapshot) => {
+  querySnapshot.forEach((document) => {
+    //console.log(document.data());
+  });
+});
 
 const WhpUrl = "https://www.thewarehouseproject.com/calendar_2022";
 axios(WhpUrl).then((res) => {
@@ -19,12 +34,22 @@ axios(WhpUrl).then((res) => {
   });
 
   // GET DATES
-  const dateArr = [];
+  let dateArr = [];
   $(".calendar_block_date", html).each(function () {
     const dates = $(this).text();
     dateArr.push(dates);
   });
-  //console.log(dateArr)
+  dateArr = dateArr.slice(0, 34);
+
+  // ---------------
+
+  const datesRef = db.collection("dates").doc("mBeK155o3DJeKf4DkWPB");
+
+  const setDates = datesRef.set({
+    dates2022: admin.firestore.FieldValue.arrayUnion(dateArr[0]),
+  });
+
+  // ----------------
 
   // GET EVENT NAMES
   const beforeEventNamesArr = [];
