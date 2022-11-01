@@ -2,6 +2,7 @@ const PORT = 8000;
 
 // TO RUN FILE:
 // npm run start
+// or
 // node ./index
 const axios = require("axios");
 const cheerio = require("cheerio");
@@ -14,12 +15,17 @@ const app = express();
 admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 const db = admin.firestore();
 
+/*
+
+GET REQUEST FROM DATABASE
+
 let dates = db.collection("dates");
 dates.get().then((querySnapshot) => {
   querySnapshot.forEach((document) => {
-    //console.log(document.data());
+    console.log(document.data());
   });
 });
+*/
 
 const WhpUrl = "https://www.thewarehouseproject.com/calendar_2022";
 axios(WhpUrl).then((res) => {
@@ -33,6 +39,7 @@ axios(WhpUrl).then((res) => {
     allEventDataArr.push(allEventData);
   });
 
+  // ---------------
   // GET DATES
   let dateArr = [];
   $(".calendar_block_date", html).each(function () {
@@ -41,14 +48,12 @@ axios(WhpUrl).then((res) => {
   });
   dateArr = dateArr.slice(0, 34);
 
+  // SET DATES IN DATABASE
+  const datesRef = db.collection("dates").doc("mBeK155o3DJeKf4DkWPB");
+  datesRef.set({ dates2022: dateArr });
   // ---------------
 
-  const datesRef = db.collection("dates").doc("mBeK155o3DJeKf4DkWPB");
-
-  const setDates = datesRef.set({ dates2022: dateArr })
-
-  // ----------------
-
+  // ---------------
   // GET EVENT NAMES
   const beforeEventNamesArr = [];
   $(".calendar_name", html).each(function () {
@@ -58,8 +63,14 @@ axios(WhpUrl).then((res) => {
   const eventNamesArr = beforeEventNamesArr.map((eventName) =>
     eventName.eventNames.replace(/\s\s+/g, "")
   );
-  //console.log(eventNamesArr);
+  const eventArr = eventNamesArr.slice(0, 34);
 
+  // SET EVENTS IN DATABASE
+  const eventsRef = db.collection("events").doc("oDpZA7vIHtUkO4hXe0je");
+  eventsRef.set({ events2022: eventArr });
+  // ---------------
+
+  // ---------------
   // GET ARTIST LINEUP
   const artistLineupArr1 = [];
   $(".calendar_artists", html).each(function () {
@@ -86,7 +97,9 @@ axios(WhpUrl).then((res) => {
   // const newArr = artistLineupArr2.map((lineup) =>
   //   lineup.replace(/([A-Z])/g, " $1").trim()
   // );
+  // ---------------
 
+  // ---------------
   // GET EVENT TIME AND LOCATION
   const timeLocationArr = [];
   $(".grey", html).each(function () {
