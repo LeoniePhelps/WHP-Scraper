@@ -45,9 +45,7 @@ axios(WhpUrl).then((res) => {
 
   const datesRef = db.collection("dates").doc("mBeK155o3DJeKf4DkWPB");
 
-  const setDates = datesRef.set({
-    dates2022: admin.firestore.FieldValue.arrayUnion(dateArr[0]),
-  });
+  const setDates = datesRef.set({ dates2022: dateArr })
 
   // ----------------
 
