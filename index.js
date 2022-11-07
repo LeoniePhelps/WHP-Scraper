@@ -50,7 +50,7 @@ axios(WhpUrl).then((res) => {
 
   // SET DATES IN DATABASE
   const datesRef = db.collection("dates").doc("mBeK155o3DJeKf4DkWPB");
-  datesRef.set({ dates2022: dateArr });
+  //datesRef.set({ dates2022: dateArr });
   // ---------------
 
   // ---------------
@@ -67,7 +67,7 @@ axios(WhpUrl).then((res) => {
 
   // SET EVENTS IN DATABASE
   const eventsRef = db.collection("events").doc("oDpZA7vIHtUkO4hXe0je");
-  eventsRef.set({ events2022: eventArr });
+  //eventsRef.set({ events2022: eventArr });
   // ---------------
 
   // ---------------
