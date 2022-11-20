@@ -1,13 +1,10 @@
 const PORT = 8000;
 
-// TO RUN FILE:
-// npm run start
-// or
-// node ./index
 const axios = require("axios");
 const cheerio = require("cheerio");
 const express = require("express");
 const admin = require("firebase-admin");
+const lineupArr = require("./lineupArrays");
 const serviceAccount = require("./serviceAccountKeys.json");
 
 const app = express();
@@ -72,31 +69,12 @@ axios(WhpUrl).then((res) => {
 
   // ---------------
   // GET ARTIST LINEUP
-  const artistLineupArr1 = [];
+  const artistLineupArr = [];
   $(".calendar_artists", html).each(function () {
-    const artistLineup = $(this).text();
-    artistLineupArr1.push(artistLineup);
+    const rawText = $(this).text();
+    artistLineupArr.push(rawText);
   });
-  const artistLineupArr2 = artistLineupArr1.map((lineup) =>
-    lineup
-      .replace(/\s\s+/g, "")
-      .replace(/B2B/g, "")
-      .replace(/b2b/g, "")
-      .replace(/\|/g, "")
-      .replace(/\//g, "")
-      .replace(/\[LIVE\]/g, "")
-      .replace(/Concourse:/g, "")
-      .replace(/Depot:/g, "")
-  );
-  artistLineupArr2.shift();
-  const artistLineupArr3 = artistLineupArr2.filter((lineup) => {
-    return lineup !== "";
-  });
-  // console.log(artistLineupArr3);
 
-  // const newArr = artistLineupArr2.map((lineup) =>
-  //   lineup.replace(/([A-Z])/g, " $1").trim()
-  // );
   // ---------------
 
   // ---------------
