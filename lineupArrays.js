@@ -22,9 +22,22 @@ const lineupArr = [
   "Orbital Happy Mondays Inner City 808 State CeCe Rogers K-Klass House Gospel Choir Kerri Chandler David Morales Kenny Dope Todd Terry  Marshall Jefferson Graeme Park Greg Wilson A Guy Called Gerald DJ Pierre Dj Paulette Jon Dasilva Tom Wainwright Justin Robertson Chad Jackson Mark XTC, Russ Hewan Clarke DJ Woody",
   "",
   "Marco Carola Jamie Jones Ilario Alicante Manda Moor Iglesias Richy Ahmed Archie Hamilton Ida Engberg Jesse Calosso Ben Sterling Calvin Clarke Luke Welsh Mike Morrisey East End Dubs Joey Daniel Rossi Neverdogs Ms. Mada",
-  "Four Tet ",
+  "Four Tet Floating Points Overmono TSHA DJ Seinfeld I. Jordan Leon Vynehall Erol Alkan Piri & Tommy John Glacier Tarzsa Folamour Jayda G Romy Daphni Joy Orbison salute Logic1000 SNO Aletha Gracie T DJ Priya Jossy Mitsu Two Shell Elkka Barry Can't Swim Ela Minus Anish Kumar Hagop Tchaparian",
+  "Fatima Yamaha",
+  "Major League DJz Sef Kombo & Kitty Amor Charisse C Mixrmoe",
+  "O'Flynn",
+  "Camelphat Agents Of Time Hayley Zalassi Kölsch Korolova Massano Mathame Mind Against Obskür",
+  "Central Cee Knucks Pa Salieu P-rallel Sainté Skinny Macho Tiffany Calver Yung_omz Tone Rarri Ak Gramm",
+  "Adam Beyer Alan Fitzpatrick Anna Bart Skils Charles D Eli Brown HI-LO Juliet Fox Layton Giordani Lilly Palmer Maceo Plex Maceo Plex Raxon Oscar L Weska Rebūke Roberto Capuano Sterac AKA Steve Rachmad Veerus Victor Ruiz Wehbba",
+  "Andy C Sub Focus Dimension Hedex A.M.C Turno S.P.Y Aries Kelvin 373 Selecta J Man Gray Ft Carasel Jamezy Carasel Dreps Id Lowqui Phantom Skywalker Tonn Piper Sigma Benny L Disrupta Mozey Simula EJ Kitto K Motionz Problem Central Serum Bladerunner Nu Elementz Amplify Azza Grima Sub Zero Upgrade Vibe Chemistry Devilman Dynamite Evil B Eksman Ic3 Trigga AC13 Lens Break DLR Bryan Gee Gra Whiney Ed Solo Deekline Phibes Serial Killaz Kara Kaz Watch The Ride Fox Lowqui Natty Campbell",
+  "",
+  "Mason Collective AJ Christou Jesse Calosso Reme Seb Zito Sydney Charles",
+  "Jospeh Capriati Alan Fitzpatrick ALISHA Archie Hamilton Ben Sterling Dennis Cruz East End Dubs Fleur Shore Joey Daniel Luuk Van Dijk Manda Moor Marco Faraone Pirate Copy Prunk Richy Ahmed Rossi wAFF Wheats",
+  "Annie Mac DJ EZ LF SYSTEM Eliza Rose KILIMANJARO Meg Ward Krysko Ben Hemsley Low Steppa Arielle Free Hannah Laing Mark Blair Joe Motion Dusky Interplanetary Criminal Adelphi Music Factory Bklava Tommy Farrow",
+  "Apollonia Dan Ghenacia Dyed Soundorom Shonky Chris Stussy Enzo Siragusa Gene On Earth Lauren Lo Sung Sweely LIVE",
+  "Folamour",
+  "Bicep Chloé Caillet Chloé Robinson Dan Shake DJ EZ DJ BORING Eclair Fifi Effy Enzo Siragusa HAAi Josey Rebelle Joy Orbison Jyoty Kerri Chandler Kessler KETTAMA KILIMANJARO Krystal Klear LUXE Mall Grab Mella Dee NIKS Overmono Peggy Gou Prospa Ryan Elliott Sally C salute Saoirse Seth Troxler Skream Tarzsa TSHA Yung Singh",
+  "",
 ];
-
-console.log(lineupArr);
 
 module.exports = lineupArr;
